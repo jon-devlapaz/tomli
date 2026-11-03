@@ -1,0 +1,20 @@
+tomli: /home/tinker/dev/worktrees/tomli/fix-312-trailing-backslash/src/tomli/__init__.py
+parser: /home/tinker/dev/worktrees/tomli/fix-312-trailing-backslash/src/tomli/_parser.py
+tests: /home/tinker/dev/worktrees/tomli/fix-312-trailing-backslash/tests/__init__.py
+E
+======================================================================
+ERROR: test_trailing_backslash_position (unittest.loader._FailedTest.test_trailing_backslash_position)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_trailing_backslash_position
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/unittest/loader.py", line 154, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'tests.test_trailing_backslash_position'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)
+missing module exit: 1
