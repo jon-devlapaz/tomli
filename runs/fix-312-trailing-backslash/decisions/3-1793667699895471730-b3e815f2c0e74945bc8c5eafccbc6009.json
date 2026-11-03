@@ -1,0 +1,58 @@
+{
+  "inputs": "82e21caed3ff335f0309eb8577f7447e25dedf455f3d4e2049de9976115469f7",
+  "decision": "approved",
+  "basis": "confirmed-seed",
+  "reviewer": "confirmed-seed binding (automatic)",
+  "source": "runs/fix-312-trailing-backslash/seed-contract.md",
+  "seed_binding": {
+    "path": "runs/fix-312-trailing-backslash/seed-contract.md",
+    "sha256": "0ce0810b3d8eb238a68c40824b765a8a2f73dcf83e25611d0bb1eddd9c8cf26b",
+    "source": "/home/tinker/.local/share/tinkery/sessions/session-R02wDy/seed-contract.md",
+    "definitions_sha256": "97ccdabc91aa2e9eb44515c2a6b42a65f32205a42e252087277d269ee09c2959",
+    "confirmation": {
+      "schema_version": 3,
+      "checks_sha256": "937d7fc40d9ef771a1f620d17df9e6e3b2d2dc406d2d7f770083eede27973283",
+      "session_id": "session-R02wDy",
+      "operator": "agent",
+      "revision": "r2",
+      "source": "confirm",
+      "confirmed_at": "2026-11-03T00:45:14.322493+00:00",
+      "seed_sha256": "0ce0810b3d8eb238a68c40824b765a8a2f73dcf83e25611d0bb1eddd9c8cf26b",
+      "decisions_sha256": "b93f744851b3bdc068b6d91c805683fdbbfcb4256396bc250c712547167811b5",
+      "actor": {
+        "action": "typed confirm at this terminal",
+        "by": "terminal",
+        "declaration": "declared: agent",
+        "identity": "declaration is not verified identity"
+      }
+    },
+    "definitions": [
+      {
+        "cmd": "PYTHONPATH=src python3 -m unittest tests.test_trailing_backslash_position",
+        "cwd": ".",
+        "expect": "The new focused module passes assertions that trailing-backslash cases report pos == len(document), correct EOF lineno and colno, and an EOF displayed location across the shared callers, while unchanged-position controls retain their previous attributes and text.",
+        "kind": "provisional",
+        "missing": "tests/test_trailing_backslash_position.py does not exist yet. Add a unittest test_trailing_backslash_reports_eof covering basic values, multiline values, and double-quoted keys, plus unchanged-position controls. The explicit module invocation must fail if the module is absent. Establish candidate-source import provenance before interpreting results. The intended pre-fix or targeted-reversion red is the pos == len(document) assertion receiving len(document)+1; this has not been executed.",
+        "source": "Confirmed goal; trailing-backslash-location and probe-pre-mortem decisions; pyproject.toml:52-59 unittest invocation; tests/__init__.py:5-9 source import; change-to-r1 source-checkout invocation revision",
+        "statement": "For a TOML document ending with a backslash inside a basic string value, multiline basic string value, or double-quoted key, report pos at the end of the document, never beyond it, while keeping everything else about error positions as it is.",
+        "id": "seed-1",
+        "description": "For a TOML document ending with a backslash inside a basic string value, multiline basic string value, or double-quoted key, report pos at the end of the document, never beyond it, while keeping everything else about error positions as it is.",
+        "origin": "agent-confirmed-seed",
+        "locked": true
+      },
+      {
+        "cmd": "PYTHONPATH=src python3 -m unittest tests.test_error",
+        "cwd": ".",
+        "expect": "The existing tests.test_error unittest module completes successfully with its displayed-location and public error-attribute assertions unchanged. Proposed check; not executed here.",
+        "kind": "cmd",
+        "source": "change-to-r1 decision specifies the exact command; tests/test_error.py:13-38,92-104 supplies existing assertions; tests/__init__.py:5-9 imports tomli; pyproject.toml:52-59 establishes unittest runner usage",
+        "statement": "The existing error-location and public TOMLDecodeError attribute tests continue to pass.",
+        "id": "seed-2",
+        "description": "The existing error-location and public TOMLDecodeError attribute tests continue to pass.",
+        "origin": "agent-confirmed-seed",
+        "locked": true
+      }
+    ]
+  },
+  "reason": "matches confirmed seed (sha256: 0ce0810b3d8eb238a68c40824b765a8a2f73dcf83e25611d0bb1eddd9c8cf26b); seed-1 activated as confirmed: runs `PYTHONPATH=src python3 -m unittest tests.test_trailing_backslash_position`"
+}

@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "run_id": "0d1a2142-92e1-4723-b1d7-1402f1b9b17f",
+  "checkout": "/home/tinker/dev/worktrees/tomli/fix-312-trailing-backslash",
+  "report": "/home/tinker/dev/run-notes/fix-312-build-2.md",
+  "model": "openai/gpt-6.1-sol:medium",
+  "launcher": "/home/tinker/dev/worktrees/tomli/fix-312-trailing-backslash/_system/scripts/pi-launcher",
+  "launcher_sha256": "147347214e5679a0ce5832d47b43015d510ec55eb3e07e578182e5d8aef8d5c3",
+  "state": "completed",
+  "session": "tsdlc-04239f2ec3e04914b110891286136ec7",
+  "prepared_ns": 1793667639415938799,
+  "report_sha256": "9f31b4b374c7a39bd5a00724c8172a3a9c9a1c6a40c881cdbf6a405328bcca72"
+}
