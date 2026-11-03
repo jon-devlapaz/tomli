@@ -1,0 +1,20 @@
+{
+  "files": {
+    "tests/test_trailing_backslash_position.py": "c1e2a42f1508ee974882a6cc992fd632f506996ca872c198fba53189b33c703a"
+  },
+  "candidate": {
+    "head": "374ac65edb0e5429908eb490106255960bf6b4a9",
+    "tree": "1d25c80b27e138d72654e1753fdbceb43c0d434e7a7cef9602304d81e6cebd3a"
+  },
+  "review_source": "jondev accepted the failing regression in the Tinkery project thread, message cmsg_01Xc7HSJE5UuATsxo4nJaLDr1aBjt6mHDJWMGetEXfA1ei, 2026-11-03T00:59:35Z",
+  "failure_evidence": "runs/fix-312-trailing-backslash/03-build/output/baseline-red.log",
+  "reproduction": {
+    "argv": [
+      "sh",
+      "-c",
+      "PYTHONPATH=src python3 -m unittest tests.test_trailing_backslash_position"
+    ],
+    "exit_code": 1,
+    "log": "38a2142ba59885095e393eaeb5b7fd6a914389206b888f60606e9f9fc0dd2f24"
+  }
+}

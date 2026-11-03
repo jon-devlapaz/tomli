@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "items": [
+    {
+      "cmd": "PYTHONPATH=src python3 -m unittest tests.test_trailing_backslash_position",
+      "cwd": ".",
+      "expect": "The new focused module passes assertions that trailing-backslash cases report pos == len(document), correct EOF lineno and colno, and an EOF displayed location across the shared callers, while unchanged-position controls retain their previous attributes and text.",
+      "kind": "provisional",
+      "missing": "tests/test_trailing_backslash_position.py does not exist yet. Add a unittest test_trailing_backslash_reports_eof covering basic values, multiline values, and double-quoted keys, plus unchanged-position controls. The explicit module invocation must fail if the module is absent. Establish candidate-source import provenance before interpreting results. The intended pre-fix or targeted-reversion red is the pos == len(document) assertion receiving len(document)+1; this has not been executed.",
+      "source": "Confirmed goal; trailing-backslash-location and probe-pre-mortem decisions; pyproject.toml:52-59 unittest invocation; tests/__init__.py:5-9 source import; change-to-r1 source-checkout invocation revision",
+      "statement": "For a TOML document ending with a backslash inside a basic string value, multiline basic string value, or double-quoted key, report pos at the end of the document, never beyond it, while keeping everything else about error positions as it is.",
+      "activation": {
+        "cmd": "PYTHONPATH=src python3 -m unittest tests.test_trailing_backslash_position",
+        "cwd": ".",
+        "evidence": "Prerequisite exists at tests/test_trailing_backslash_position.py with test_trailing_backslash_reports_eof and unchanged-position controls. runs/fix-312-trailing-backslash/03-build/output/provenance-and-missing-module.log establishes candidate-source imports and failure when the module was absent. runs/fix-312-trailing-backslash/03-build/output/baseline-red.log records the expected pre-fix pos assertion receiving len(document)+1 for all six shared-caller cases; controls pass. Independent acceptance and a green verify remain outstanding."
+      },
+      "id": "seed-1",
+      "description": "For a TOML document ending with a backslash inside a basic string value, multiline basic string value, or double-quoted key, report pos at the end of the document, never beyond it, while keeping everything else about error positions as it is.",
+      "origin": "agent-confirmed-seed",
+      "locked": true
+    },
+    {
+      "cmd": "PYTHONPATH=src python3 -m unittest tests.test_error",
+      "cwd": ".",
+      "expect": "The existing tests.test_error unittest module completes successfully with its displayed-location and public error-attribute assertions unchanged. Proposed check; not executed here.",
+      "kind": "cmd",
+      "source": "change-to-r1 decision specifies the exact command; tests/test_error.py:13-38,92-104 supplies existing assertions; tests/__init__.py:5-9 imports tomli; pyproject.toml:52-59 establishes unittest runner usage",
+      "statement": "The existing error-location and public TOMLDecodeError attribute tests continue to pass.",
+      "id": "seed-2",
+      "description": "The existing error-location and public TOMLDecodeError attribute tests continue to pass.",
+      "origin": "agent-confirmed-seed",
+      "locked": true
+    }
+  ]
+}
