@@ -1,0 +1,6 @@
+{
+  "require_tink": false,
+  "checks": [
+    {"argv": ["sh", "-c", "PYTHONPATH=src python3 -m unittest"], "timeout_seconds": 600}
+  ]
+}
